@@ -1,0 +1,41 @@
+:root {
+    --color-yellow: #FF8A00;
+    --color-dark: #100e17;
+    --color-white: #FAFAFA;
+    --color-highlight-one: #72E0D1;
+    --color-highlight-two: #F5D77B;
+    --color-shadow-start: #00000030;
+    --color-shadow-end: #0000003b;
+    --font-default: "Roboto", sans-serif;
+  }	
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--color-dark);
+    font-family: var(--font-default);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	width: 20vw;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.description {
+	width: 20vw;
+	margin: 1vh 0;
+	font-size: 1.2em;
+	text-align: center;
+	color: var(--color-white);
+}
+
+.value {
+	font-size: 2em;
+	width: 20vw;
+	text-align: center;
+	color: var(--color-highlight-one);
+}
