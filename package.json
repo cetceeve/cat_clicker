@@ -1,0 +1,16 @@
+{
+  "name": "cat_clicker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "http-server -o"
+  },
+  "author": "Fabian Zeiher",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "http-server": "^0.12.3"
+  }
+}
