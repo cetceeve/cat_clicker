@@ -1,6 +1,12 @@
 console.log("loaded");
 
-document.querySelector("main .pic").addEventListener("click", () => {
-    let value = document.querySelector("main .value").innerHTML;
-    document.querySelector("main .value").innerHTML = parseInt(value) + 1;
-});
+function init() {
+    document.querySelector("main .pic").addEventListener("click", incrementValue);
+}
+
+function incrementValue() {
+    let valueEl = document.querySelector("main .value");
+    valueEl.innerHTML = parseInt(valueEl.innerHTML) + 1;
+}
+
+init();
