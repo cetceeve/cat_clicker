@@ -1,7 +1,13 @@
 console.log("loaded");
 
 function init() {
-    document.querySelector("main .pic").addEventListener("click", incrementValue);
+    addCatEventListener(document.querySelector("#catPics").children);
+}
+
+function addCatEventListener(catEls) {
+    for (let catEl of catEls) {
+        catEl.addEventListener("click", incrementValue);
+    }
 }
 
 function incrementValue() {
