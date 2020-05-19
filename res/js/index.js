@@ -1,18 +1,40 @@
-console.log("loaded");
+import * as _ from "../../vendors/underscore/underscore.js";
+
+const VALUEEL = document.querySelector("main .value"),
+    CATPICEL = document.querySelector("main .cat_pic"),
+    CATDRAWEREL = document.querySelector("main .cat_drawer"),
+    CATDRAWERTEMPLATE = document.querySelector("#catDrawerItemTemplate"),
+    CATS = [{ "id": 1, "name": "Flauschi", "src": "data/cat.jpg" }, { "id": 2, "name": "noname", "src": "data/unnamed.jpg" }];
 
 function init() {
-    addCatEventListener(document.querySelector("#catPics").children);
+    initCatDrawer();
+    initEventListener();
 }
 
-function addCatEventListener(catEls) {
-    for (let catEl of catEls) {
-        catEl.addEventListener("click", incrementValue);
+function initCatDrawer() {
+    for (let cat of CATS) {
+        CATDRAWERTEMPLATE.content.querySelector("li").id = cat.id;
+        CATDRAWERTEMPLATE.content.querySelector("li").textContent = cat.name;
+        CATDRAWEREL.appendChild(document.importNode(CATDRAWERTEMPLATE.content, true));
     }
 }
 
+function initEventListener() {
+    CATPICEL.addEventListener("click", incrementValue);
+    CATDRAWEREL.addEventListener("click", onCatDrawerClicked);
+}
+
+function onCatDrawerClicked(event) {
+    displayCat(event.target.id);
+}
+
 function incrementValue() {
-    let valueEl = document.querySelector("main .value");
-    valueEl.innerHTML = parseInt(valueEl.innerHTML) + 1;
+    VALUEEL.innerHTML = parseInt(VALUEEL.innerHTML) + 1;
+}
+
+function displayCat(catID) {
+    let cat = CATS.find(item => item.id === parseInt(catID));
+    CATPICEL.src = cat.src;
 }
 
 init();
