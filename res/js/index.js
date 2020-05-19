@@ -1,40 +1,28 @@
-import * as _ from "../../vendors/underscore/underscore.js";
+// import * as _ from "../../vendors/underscore/underscore.js";
 
-const VALUEEL = document.querySelector("main .value"),
-    CATPICEL = document.querySelector("main .cat_pic"),
-    CATDRAWEREL = document.querySelector("main .cat_drawer"),
-    CATDRAWERTEMPLATE = document.querySelector("#catDrawerItemTemplate"),
-    CATS = JSON.parse(document.querySelector("#cat_list").innerHTML);
+const CATS = JSON.parse(document.querySelector("#cat_list").innerHTML);
+
+import catViewer from "./catviewer.js";
+import catDrawer from "./catdrawer.js";
 
 function init() {
-    initCatDrawer();
-    initEventListener();
+    catDrawer.render(CATS);
+    catDrawer.addEventListener("onItemClicked", (event) => displayCat(event.data));
+    catViewer.render(CATS[0]);
+    catViewer.addEventListener("onPicClicked", (event) => incrementCounter(event.data));
 }
 
-function initCatDrawer() {
-    for (let cat of CATS) {
-        CATDRAWERTEMPLATE.content.querySelector("li").id = cat.id;
-        CATDRAWERTEMPLATE.content.querySelector("li").textContent = cat.name;
-        CATDRAWEREL.appendChild(document.importNode(CATDRAWERTEMPLATE.content, true));
-    }
-}
-
-function initEventListener() {
-    CATPICEL.addEventListener("click", incrementValue);
-    CATDRAWEREL.addEventListener("click", onCatDrawerClicked);
-}
-
-function onCatDrawerClicked(event) {
-    displayCat(event.target.id);
-}
-
-function incrementValue() {
-    VALUEEL.innerHTML = parseInt(VALUEEL.innerHTML) + 1;
+function incrementCounter(catID) {
+    console.log("hi");
+    let cat = CATS.find(item => item.id === parseInt(catID));
+    cat.clickCount = cat.clickCount + 1;
+    console.log(cat.clickCount);
+    catViewer.render(cat);
 }
 
 function displayCat(catID) {
     let cat = CATS.find(item => item.id === parseInt(catID));
-    CATPICEL.src = cat.src;
+    catViewer.render(cat);
 }
 
 init();
