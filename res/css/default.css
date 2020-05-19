@@ -17,8 +17,6 @@ body {
 }
 
 main {
-	display: flex;
-	flex-direction: column;
 	width: 50%;
 	margin: auto;
 	margin-top: 2vh;
@@ -29,14 +27,6 @@ main {
 	cursor: pointer;
 }
 
-.description {
-	width: 100%;
-	margin: 1vh 0;
-	font-size: 1.2em;
-	text-align: center;
-	color: var(--color-dark);
-}
-
 .value {
 	font-size: 2em;
 	width: 100%;
@@ -44,8 +34,17 @@ main {
 	color: var(--color-highlight-one);
 }
 
-.cat_pic {
+.cat_drawer {
 	float: left;
-	width: 75%;
 	margin-right: 2em;
+}
+
+.cat_viewer {
+	width: 75%;
+	float: right;
+	text-align: center;
+}
+
+.cat_pic {
+	width: inherit;
 }
