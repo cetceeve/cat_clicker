@@ -19,6 +19,8 @@
         </div>
         <div class="setclear admin_viewer">
             <button id="admin">Admin</button>
+            <div class="input_admin">
+            </div>
         </div>
     </main>
 
@@ -35,18 +37,22 @@
         { "id": 5, "name": "Basket", "src": "data/basket.jpg", "clickCount": 0 }]}
     </template>
 
-    <script type="text/template" id="input_admin">
+    <script type="text/template" id="template_admin">
         <div>
             <label for="input_name">Enter Name: </label>
-            <input id="input_name" type="text" value="<%= name>">
+            <input id="input_name" type="text" value="<%= name%>">
         </div>
         <div>
             <label for="input_src">Enter Source: </label>
-            <input id="input_src" type="text" value="<%= src>">
+            <input id="input_src" type="text" value="<%= src%>">
         </div>
         <div>
             <label for="input_click_count">Enter Click Count: </label>
-            <input id="input_click_count" type="text" value="<%= clickCount>">
+            <input id="input_click_count" type="text" value="<%= clickCount%>">
+        </div>
+        <div>
+            <button id="admin_cancel">Cancel</button>
+            <button id="admin_save">Save</button>
         </div>
     </script>
 
