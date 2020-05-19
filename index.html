@@ -20,12 +20,16 @@
         </div>
     </main>
 
-    <!--<script id="catDrawerItemTemplate" type="text/template">
-        <li id="<%= id>" class="listEl"><%= name></li>
-    </script>-->
-
     <template id="catDrawerItemTemplate">
         <li id="{{ID}}" class="listEl">{{NAME}}</li>
+    </template>
+
+    <template id="cat_list">
+        [{ "id": 1, "name": "Flauschi", "src": "data/cat.jpg" },
+        { "id": 2, "name": "Wuschel", "src": "data/unnamed.jpg" },
+        { "id": 3, "name": "Tobbsen", "src": "data/tobbsen.jpg" },
+        { "id": 4, "name": "Gustaf", "src": "data/cool.jpg" },
+        { "id": 5, "name": "Basket", "src": "data/basket.jpg" }]
     </template>
 
     <script type="module" src="vendors/underscore/underscore.js"></script>

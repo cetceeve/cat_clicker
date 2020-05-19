@@ -4,7 +4,7 @@ const VALUEEL = document.querySelector("main .value"),
     CATPICEL = document.querySelector("main .cat_pic"),
     CATDRAWEREL = document.querySelector("main .cat_drawer"),
     CATDRAWERTEMPLATE = document.querySelector("#catDrawerItemTemplate"),
-    CATS = [{ "id": 1, "name": "Flauschi", "src": "data/cat.jpg" }, { "id": 2, "name": "noname", "src": "data/unnamed.jpg" }];
+    CATS = JSON.parse(document.querySelector("#cat_list").innerHTML);
 
 function init() {
     initCatDrawer();
