@@ -12,7 +12,6 @@ class CatViewer extends EventTarget {
             super.dispatchEvent((function () {
                 let e = new Event("onPicClicked");
                 e.data = event.target.id;
-                console.log(e);
                 return e;
             })());
         });

@@ -13,10 +13,8 @@ function init() {
 }
 
 function incrementCounter(catID) {
-    console.log("hi");
     let cat = CATS.find(item => item.id === parseInt(catID));
     cat.clickCount = cat.clickCount + 1;
-    console.log(cat.clickCount);
     catViewer.render(cat);
 }
 
