@@ -48,3 +48,7 @@ main {
 .cat_pic {
 	width: inherit;
 }
+
+.setclear {
+	clear: both;
+}
