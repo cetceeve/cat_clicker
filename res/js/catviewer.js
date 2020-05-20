@@ -17,10 +17,18 @@ class CatViewer extends EventTarget {
         });
     }
 
-    render(cat) {
-        this.CATPICEL.id = cat.id;
-        this.CATPICEL.src = cat.src;
-        this.VALUEEL.innerHTML = this.VALUETEMPLATE.replace("{{name}}", cat.name).replace("{{value}}", cat.clickCount);
+    render() {
+        let renderCat = function (cat) {
+            this.CATPICEL.id = cat.id;
+            this.CATPICEL.src = cat.src;
+            this.VALUEEL.innerHTML = this.VALUETEMPLATE.replace("{{name}}", cat.name).replace("{{value}}", cat.clickCount);
+        };
+
+        super.dispatchEvent((function () {
+            let e = new Event("requestCat");
+            e.callback = renderCat.bind(this);
+            return e;
+        }).call(this));
     }
 }
 

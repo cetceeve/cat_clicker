@@ -26,16 +26,25 @@ class AdminViewer extends EventTarget {
         this.resetView();
     }
 
-    render(cat) {
-        this.ADMINVIEWEREL.querySelector("#admin").disabled = true;
-        let div = document.createElement("DIV");
-        div.innerHTML = this.inputFieldTemplateCompiled(cat);
+    render() {
+        let renderCat = function (cat) {
+            this.ADMINVIEWEREL.querySelector("#admin").disabled = true;
 
-        this.INPUTCONTAINEREL.innerHTML = "";
-        this.INPUTCONTAINEREL.appendChild(div);
+            let div = document.createElement("DIV");
+            div.innerHTML = this.inputFieldTemplateCompiled(cat);
 
-        div.querySelector("#admin_cancel").addEventListener("click", this.resetView.bind(this));
-        div.querySelector("#admin_save").addEventListener("click", this.saveChanges.bind(this));
+            this.INPUTCONTAINEREL.innerHTML = "";
+            this.INPUTCONTAINEREL.appendChild(div);
+
+            div.querySelector("#admin_cancel").addEventListener("click", this.resetView.bind(this));
+            div.querySelector("#admin_save").addEventListener("click", this.saveChanges.bind(this));
+        };
+
+        super.dispatchEvent((function () {
+            let e = new Event("requestCat");
+            e.callback = renderCat.bind(this);
+            return e;
+        }).call(this));
     }
 
     getInputData() {
